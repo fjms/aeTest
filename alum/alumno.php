@@ -127,7 +127,9 @@ require '../scripts/bdutil.php';
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
                                             <?php
-                                            echo R::count('examen','estado LIKE "creado"');                                            
+                                            $exames = R::count('examen','estado LIKE "creado"');
+                                            $examenes_realizados = R::count('resultado','user_id = ?',[$_SESSION['id_usuario']]);
+                                            echo $exames-$examenes_realizados;
                                             ?>
                                         </div>
                                         <div>Examenes pendientes</div>
@@ -151,7 +153,11 @@ require '../scripts/bdutil.php';
                                         <i class="fa  fa-bar-chart-o  fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge">
+                                             <?php
+                                            echo R::count('resultado','nota >= 5');                                            
+                                            ?>
+                                        </div>
                                         <div>Examenes Aprobados</div>
                                     </div>
                                 </div>
@@ -173,7 +179,9 @@ require '../scripts/bdutil.php';
                                         <i class="fa fa-bar-chart-o fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
+                                        <div class="huge"><?php
+                                            echo R::count('resultado','nota < 5');                                            
+                                            ?></div>
                                         <div>Examenes Suspendidos</div>
                                     </div>
                                 </div>
