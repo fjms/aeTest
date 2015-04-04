@@ -136,7 +136,7 @@ require '../scripts/bdutil.php';
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="./doexam.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">Realizar Examen</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
