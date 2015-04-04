@@ -1,6 +1,8 @@
 <?php
-
-require './segAdmin.php';
+session_start();
+if(!isset($_SESSION['rol']) || $_SESSION['rol']!=1){
+   header('Location: ../index.php');
+}
 require './bdutil.php'; // RedBeanPHP 4.1.4
 
 if (isset($_GET['q'])) {
