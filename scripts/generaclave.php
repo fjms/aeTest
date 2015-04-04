@@ -4,7 +4,6 @@ require './bdutil.php';
 
 function generaclave(&$repetido) {
     $i = 1;
-    $repetido = [];
     $claves = rand(100, 999);
     $repetido[] = $claves;
     while ($i < 64) {
@@ -26,14 +25,6 @@ if (isset($_SESSION['id_usuario']) && isset($_POST['enviar'])) {
     R::store($alu);
     $_SESSION['pdf']=$claves;
     header('Location: ../imprimirPDF.php');
-   /* 
-    for($i=1;$i<=64;$i++){
-        echo $claves[$i-1].'-';
-        if($i%8 == 0){
-            echo '<br>';
-        }
-    }
-    */
 } else {
     header('Location: ../coordenadas.php');
 }

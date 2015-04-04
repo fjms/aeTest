@@ -134,9 +134,7 @@ require './scripts/bdutil.php';
 
                 <div class="row">
                     <div class="col-lg-5">
-                        <?php
-                        if (!isset($_SESSION['pdf'])) {
-                            ?>
+                        
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <i class="fa  fa-table -o fa-fw"></i>Nuevas Coordenadas                              
@@ -156,16 +154,7 @@ require './scripts/bdutil.php';
                                 </div>
                                 <!-- /.panel-body -->
                             </div>
-                            <?php
-                        } else {
-                            /*
-                            $matriz = $_SESSION['pdf'];
-                            unset($_SESSION['pdf']);
-                            require './imprimirPDF.php';*/
-                            ?>
-                            
-
-                        <?php } ?>
+                      
                     </div>
 
                 </div>
