@@ -1,7 +1,6 @@
 <?php
 require '../scripts/segAlu.php'; // Levanta session y securiza alumno
 require '../scripts/bdutil.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,6 +27,8 @@ require '../scripts/bdutil.php';
 
         <!-- Custom Fonts -->
         <link href="../theme/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- TimeTo JQuery Plugin -->
+        <link href="../bootstrap/css/timeTo.css" rel="stylesheet" type="text/css">
 
 
     </head>
@@ -110,9 +111,20 @@ require '../scripts/bdutil.php';
                 <div class="row">
                     <div class="col-lg-8">
                         <form method="post" action="../scripts/exam_action.php">
-                        <div id="preguntas"></div>
-                        
+                            <div id="preguntas"></div>
+
                         </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="panel-info">
+                            <div class="panel-heading">
+                                <i class="fa fa-clock-o fa-fw"></i>
+                                Tiempo Restante
+                            </div>
+                            <div class="panel-body" id="countdown">
+
+                            </div>
+                        </div>                      
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -130,13 +142,21 @@ require '../scripts/bdutil.php';
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../theme/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
+        <script src="../bootstrap/js/jquery.timeTo.min.js"></script>
 
 
         <!-- Custom Theme JavaScript -->
         <script src="../theme/dist/js/sb-admin-2.js"></script>
         <script>
             $(document).ready(function () {
-                    $("#preguntas").load("../scripts/getexamen.php");               
+                $("#preguntas").load("../scripts/getexamen.php");
+                $('#countdown').timeTo({
+                    seconds: 5,
+                    displayHours: false},
+                function () {
+                    alert('Se acabo el tiempo');
+                }
+                );
             });
         </script>
     </body>

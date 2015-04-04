@@ -35,10 +35,10 @@ if (isset($_SESSION['id_resultado'])) {
             . '<label class="radio-inline">'
             . '<input type="radio" name="respuesta' . $i . '" value="d">D'
             . '</label>'
-            . '</div></div>'
-            . '<button class="btn btn-outline btn-primary btn-group-justified" type="submit">Enviar Examen</button>';
+            . '</div></div>';
             $i++;
         }
+        echo '<button class="btn btn-outline btn-primary btn-group-justified" type="submit">Enviar Examen</button>';
     } else {
         echo '<div class="alert alert-danger">El examen ha finalizado.</div>';
     }
