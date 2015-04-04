@@ -109,9 +109,9 @@ require '../scripts/bdutil.php';
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-8">
-                        <form>
+                        <form method="post" action="../scripts/exam_action.php">
                         <div id="preguntas"></div>
-                        <button class="btn btn-outline btn-primary btn-group-justified" type="button">Enviar Examen</button>
+                        
                         </form>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -136,8 +136,7 @@ require '../scripts/bdutil.php';
         <script src="../theme/dist/js/sb-admin-2.js"></script>
         <script>
             $(document).ready(function () {
-                var preguntas = "<?php echo '../scripts/getexamen.php';?>";
-                    $("#preguntas").load(preguntas);               
+                    $("#preguntas").load("../scripts/getexamen.php");               
             });
         </script>
     </body>

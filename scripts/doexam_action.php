@@ -28,7 +28,7 @@ if (isset($_POST['id_examen']) && isset($_POST['password_examen'])) {
                 if ($examen_en_bd->estado === 'iniciado') {
                     echo 'RECUPERAMOS EXAMEN';
                 } else {
-                    echo 'EXAMEN FINALIZADO';
+                    header('Location: ../alum/exam.php');
                 }
             } else { // NO EXISTE EL EXAMEN => Lo creamos
                 $resultado = R::dispense('resultado'); //Entidad Intermedia USUARIO_EXAMEN = RESULTADO
