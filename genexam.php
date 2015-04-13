@@ -61,6 +61,10 @@ require './scripts/bdutil.php';
                                                 </label>
                                                 <input type="text" class="form-control" name="nombre_examen" required></input>
                                                 <label>
+                                                    Codigo Examen
+                                                </label>
+                                                <input type="text" class="form-control" name="codigo_examen" required></input>
+                                                <label>
                                                     Contraseña Examen
                                                 </label>
                                                 <input type="text" class="form-control" name="password_examen" required></input>

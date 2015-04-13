@@ -39,13 +39,13 @@ class SSP {
 				// Is there a formatter?
 				if ( isset( $column['formatter'] ) ) {
 					$row[ $column['dt'] ] = $column['formatter']( $data[$i][ $column['db'] ], $data[$i] );
-				}
+				}                                
 				else {
 					$row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
 				}
 			}
 
-			$out[] = $row;
+			$out[] = array_map('utf8_encode', $row);
 		}
 
 		return $out;

@@ -5,11 +5,13 @@ require './scripts/bdutil.php';
 if (!isset($_POST['enviar'])) {
     header('Location: index.php');
 } else { // Creamos el examen con sus 10 preguntas.
-    if (isset($_POST['nombre_examen']) && isset($_POST['password_examen'])) {
+    if (isset($_POST['nombre_examen']) && isset($_POST['password_examen']) && isset($_POST['codigo_examen'])) {
         $examen = R::dispense('examen');
         $nombre_examen = trim($_POST['nombre_examen']);
+        $codigo_examen = trim($_POST['codigo_examen']);
         $examen->nombre = $nombre_examen;
-        $examen->estado = 'creado';
+        $examen->codigo = $codigo_examen;
+        $examen->estado ='creado';
         $examen->password = trim($_POST['password_examen']);
         $repetidos = array();
         $i = 1;

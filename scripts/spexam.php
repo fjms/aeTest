@@ -31,8 +31,9 @@ $primaryKey = 'id';
 $columns = array(
     array( 'db' => 'id', 'dt' => 0 ),
     array( 'db' => 'nombre', 'dt' => 1 ),
-    array( 'db' => 'estado',  'dt' => 2 ),
-    array( 'db' => 'password',   'dt' => 3 )  
+    array( 'db' => 'codigo', 'dt'=> 2),
+    array( 'db' => 'estado',  'dt' => 3 ),
+    array( 'db' => 'password',   'dt' => 4 )  
 );
  
 // SQL server connection information
