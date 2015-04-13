@@ -5,14 +5,12 @@ require './scripts/bdutil.php';
 if (!isset($_POST['enviar'])) {
     header('Location: index.php');
 } else { // Creamos el examen con sus 10 preguntas.
-    if (isset($_POST['nombre_examen']) && isset($_POST['password_examen']) && isset($_POST['codigo_examen'])) {
+    if (isset($_POST['nombre_examen']) &&  isset($_POST['codigo_examen'])) {
         $examen = R::dispense('examen');
         $nombre_examen = trim($_POST['nombre_examen']);
         $codigo_examen = trim($_POST['codigo_examen']);
         $examen->nombre = $nombre_examen;
         $examen->codigo = $codigo_examen;
-        $examen->estado ='creado';
-        $examen->password = trim($_POST['password_examen']);
         $repetidos = array();
         $i = 1;
         while ($i <= 10) {
@@ -76,12 +74,12 @@ if (!isset($_POST['enviar'])) {
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa  fa-bomb -o fa-fw"></i>                              
+                                <i class="fa  fa-bomb -o fa-fw">Examen creado</i>                              
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">         
-                                <p>Examen con nombre: <?php echo $nombre_examen . " "; ?> creado correctamente.</p>
-                                <p>La contraseña del examen es: <?php echo $examen->password . " "; ?>.</p>
+                                <p>El nombre del examen es: <?php echo $nombre_examen . " "; ?>.</p>
+                                <p>El código del examen es: <?php echo $examen->codigo . " "; ?>.</p>
                             </div>
                             <!-- /.panel-body -->
                         </div>

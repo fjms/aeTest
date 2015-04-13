@@ -53,8 +53,6 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                                                 <th>Id</th>
                                                 <th>Nombre</th>
                                                 <th>Codigo</th>
-                                                <th>Estado</th>
-                                                <th>Password</th>
                                             </tr>
                                         </thead>
                                     </table>

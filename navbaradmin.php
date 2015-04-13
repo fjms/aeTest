@@ -49,10 +49,7 @@ echo '
                                     </li>
                                     <li>
                                         <a href="vexamd.php">Ver Examenes</a>
-                                    </li>
-                                    <li>
-                                        <a href="pexam.php">Publicar Examenes</a>
-                                    </li>
+                                    </li>                                    
                                 </ul>
                             </li>
                             <li>
