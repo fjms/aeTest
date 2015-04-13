@@ -38,7 +38,7 @@ if (isset($_SESSION['id_resultado'])) {
             . '</div></div>';
             $i++;
         }
-        echo '<button class="btn btn-outline btn-primary btn-group-justified" type="submit">Enviar Examen</button>';
+        echo '<button class="btn btn-outline btn-primary btn-group-justified" type="submit">Finalizar examen</button>';
     } else {
         echo '<div class="alert alert-danger">El examen ha finalizado.</div>';
     }

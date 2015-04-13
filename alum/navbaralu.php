@@ -51,25 +51,10 @@ echo '
                                         <a href="doexam.php">Realizar examen</a>
                                     </li>
                                     <li>
-                                        <a href="#">Mis respuestas</a>
-                                    </li>
-                                    <li>
                                         <a href="#">Anular examenes pendientes</a>
                                     </li>  
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Resultados<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="flot.html">Ultimo Examen</a>
-                                    </li>
-                                    <li>
-                                        <a href="morris.html">Anteriores</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
+                            </li>                            
                             <li>
                                 <a href="coordenadas.php"><i class="fa fa-table fa-fw"></i>Tarjeta de identificación</a>
                             </li>
