@@ -1,3 +1,6 @@
+/*
+*   Recibe formulario post con las respuestas del alumno y asigna la nota.
+*/
 <?php
 
 require './segAlu.php';

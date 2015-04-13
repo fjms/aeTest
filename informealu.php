@@ -30,11 +30,12 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
 
     </head>
     <body>
-        <div id="wrapper">
-
-            <?php
+        <?php
             require 'navbaradmin.php';
             ?>
+        <div id="wrapper">
+
+            
 
             <div id="page-wrapper">
 

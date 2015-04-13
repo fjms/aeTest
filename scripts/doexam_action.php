@@ -50,6 +50,7 @@ if (isset($_POST['id_examen']) && isset($_POST['password_examen'])) {
              */
         } else {
             $aErrores[] = 'contraseña incorrecta';
+            header('Location: ../alum/doexam.php');
         }
     }
 } else {
