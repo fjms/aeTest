@@ -35,16 +35,35 @@ require '../scripts/bdutil.php';
     <body class="" style="">
         <div id="wrapper">
             <!-- Navigation -->
-           <?php require('navbaralu.php');?>
+            <?php require('navbaralu.php'); ?>
 
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-8">
                         <form method="post" action="../scripts/exam_action.php">
                             <div id="preguntas"></div>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <h4 class="modal-title" id="myModalLabel">Examen Finalizado</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            A continuación se enviaran las respuestas del examen.    
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" name="enviar" class="btn btn-primary">Enviar respuestas</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
 
                         </form>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="panel-info">
                             <div class="panel-heading">
@@ -80,13 +99,21 @@ require '../scripts/bdutil.php';
         <script>
             $(document).ready(function () {
                 $("#preguntas").load("../scripts/getexamen.php");
-                $('#countdown').timeTo({
-                    seconds: 600,
-                    displayHours: false},
-                function () {
-                    alert('Se acabo el tiempo');
+                var notimer = <?php echo $_SESSION['notimer']; ?>;
+                if (notimer==1) {} else{
+                    $('#countdown').timeTo({
+                        seconds: 600,
+                        displayHours: false},
+                    function () {
+                        $('body').addClass("modal-open"),
+                                $(".modal-open").css("padding-right", "17px"),
+                                $("#myModal").addClass("in"),
+                                $("#myModal").attr("aria-hidden", "false"),
+                                $("#myModal").css("display", "block"),
+                                $("#myModal").css("padding-right", "17px");
+                    }
+                    );
                 }
-                );
             });
         </script>
     </body>

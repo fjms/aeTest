@@ -4,7 +4,7 @@ require './segAlu.php';
 require './bdutil.php'; // RedBeanPHP 4.1.4
 
 if (isset($_SESSION['id_resultado'])) {
-    $resultado = R::load('resultado', $_SESSION['id_resultado']);
+    $resultado = R::load('resultado', $_SESSION['id_resultado']);  
     if ($resultado->estado === 'iniciado') {
         $id_examen = $resultado->examen_id;
         $exam = R::load('examen', $id_examen);
@@ -38,7 +38,7 @@ if (isset($_SESSION['id_resultado'])) {
             . '</div></div>';
             $i++;
         }
-        echo '<button class="btn btn-outline btn-primary btn-group-justified" type="submit">Finalizar examen</button>';
+        echo '<button class="btn btn-outline btn-primary btn-group-justified" name="enviar" type="submit">Finalizar examen</button>';
     } else {
         echo '<div class="alert alert-danger">El examen ha finalizado.</div>';
     }
