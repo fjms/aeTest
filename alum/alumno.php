@@ -58,11 +58,10 @@ require '../scripts/bdutil.php';
                                         <div class="huge">
                                             <?php
                                             $exames = R::count('examen');
-                                            $examenes_realizados = R::count('resultado','user_id = ?',[$_SESSION['id_usuario']]);
-                                            echo $exames-$examenes_realizados;
+                                            echo $exames;
                                             ?>
                                         </div>
-                                        <div>Examenes pendientes</div>
+                                        <div>Examenes disponibles</div>
                                     </div>
                                 </div>
                             </div>
