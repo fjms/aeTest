@@ -40,6 +40,7 @@ if (isset($_POST['enviar'])) {
     $resultado_alumno->estado = 'finalizado';
     $resultado_alumno->respuestas = json_encode($respuestas_alumno);
     R::store($resultado_alumno);
+    header('Location: ../alum/resultadoexamen.php');
 } else {
     header('Location: ../index.php');
 }

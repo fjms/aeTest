@@ -39,34 +39,43 @@ require '../scripts/bdutil.php';
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa  fa-bomb -o fa-fw"></i>Realizar examen                              
+                                <i class="fa  fa-bar-chart-o fa-fw"></i>Resultados                        
                             </div>
                             <!-- /.panel-heading -->
-                            <div class="panel-body">         
-                                <p>Elija la convocatoria de la que se va a examinar.</p>
-                                <p>Es necesario introducir la contraseña proporcionada por el profesor para realizar el examen.</p>
-                                <p>Un vez pulsado el botón comenzara a contar el tiempo disponible para realizar el examen.</p>
-                                <div class="col-xs-5">
-                                    <form role="form" method="post" action="../scripts/doexam_action.php">
-                                        <div class="form-group">
-                                            <label>
-                                                Convocatoria
-                                            </label>
-                                            <select class="form-control" name="id_examen">
-                                                <?php
-                                                $examenes = R::find('examen');
-                                                foreach ($examenes as $examen) {
-                                                    echo '<option value="' . $examen->id . '">' . $examen->nombre . '</option>';
+                            <div class="panel-body">
+                                <?php
+                                $resultado = R::load('resultado', $_SESSION['id_resultado']);
+                                echo $resultado->user->nombre . ' ' . $resultado->user->apellidos . '<br>';
+                                echo 'Examen: ' . $resultado->examen->nombre . '<br>';
+                                echo 'Fecha: ' . $resultado->fecha . '<br>';
+                                echo 'Nota: ' . $resultado->nota;
+
+                                $exam = R::load('examen', $resultado->examen->id);
+                                $repuestas = json_decode($resultado->respuestas);
+                                $i = 0;
+                                ?>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Pregunta</th>
+                                                <th>Resultado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($exam->sharedPreguntayrespuestaList as $pregunta) {
+                                                $n = $i + 1;
+                                                if ($pregunta->correcta === $repuestas[$i]) {
+                                                    echo'<tr><th>' . $n . '</th><th>Acertada</th></tr>';
+                                                } else {
+                                                    echo'<tr><th>' . $n . '</th><th>Fallada</th></tr>';
                                                 }
-                                                ?>
-                                            </select>                                           
-                                        </div>
-                                        <div class="form-group">                                              
-                                            <button class="btn btn-primary" name='enviar' type="submit">
-                                                Realizar Examen
-                                            </button>
-                                        </div>
-                                    </form>
+                                                $i++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>  
                                 </div>
                             </div>
                             <!-- /.panel-body -->
