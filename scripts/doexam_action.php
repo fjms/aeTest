@@ -16,29 +16,13 @@ if (isset($_POST['id_examen'])) {
         } else {
             $id_examen = $_POST['id_examen'];
             $examen = R::load('examen', $id_examen);
-            $examen_en_bd = R::findOne('resultado', 'user_id = ? and examen_id = ?', [$_SESSION['id_usuario'], $id_examen]);
-            if (isset($examen_en_bd)) {
-                if ($examen_en_bd->estado === 'iniciado') { //Recuperamos el examen
-                    // Se podrian marcar las respuestas que ya tuviera el alumno.
-                    $_SESSION['id_resultado'] = $examen_en_bd->id;
-                    $_SESSION['notimer'] = 0;
-                    header('Location: ../alum/exam.php');
-                } else {
-                    $_SESSION['notimer'] = 1;
-                    $_SESSION['id_resultado'] = $examen_en_bd->id;
-                    header('Location: ../alum/exam.php');
-                }
-            } else { // NO EXISTE EL EXAMEN/resultado => Lo creamos
-                $_SESSION['notimer'] = 0;
-                $resultado = R::dispense('resultado'); //Entidad Intermedia USUARIO_EXAMEN = RESULTADO
-                $usuario = R::load('user', $_SESSION['id_usuario']);
-                $resultado->user = $usuario; //Many to One
-                $resultado->examen = $examen; //Many to One
-                $resultado->estado = 'iniciado';
-                $resultado->fecha =  R::isoDate();
-                $_SESSION['id_resultado'] = R::store($resultado);
-                header('Location: ../alum/exam.php');
-            }
+            $resultado = R::dispense('resultado'); //Entidad Intermedia USUARIO_EXAMEN = RESULTADO
+            $usuario = R::load('user', $_SESSION['id_usuario']);
+            $resultado->user = $usuario; //Many to One
+            $resultado->examen = $examen; //Many to One
+            $resultado->fecha = R::isoDate();
+            $_SESSION['id_resultado'] = R::store($resultado);
+            header('Location: ../alum/exam.php');
         }
     }
 } else {
