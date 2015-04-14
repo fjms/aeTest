@@ -32,8 +32,8 @@ if (isset($_POST['dni']) && isset($_POST['password'])) {
 if (count($aErrores) > 0) { // Si tiene errores lo enviamos a inicio
     retErrorLogin();
 } else { //Todo a ido bien
-    $dni = sha1($dni);
-    $user = R::findOne('user', 'dni LIKE ?', [$dni]);
+    $dni_sha1 = sha1($dni);
+    $user = R::findOne('user', 'dni LIKE ?', [$dni_sha1]);
     if (empty($user)) { // Si no exise el usuario;
         retErrorLogin();
     } else {
@@ -47,6 +47,7 @@ if (count($aErrores) > 0) { // Si tiene errores lo enviamos a inicio
               $_SESSION['rol'] = 0;
               $_SESSION['id_usuario'] = $user->id;
               $_SESSION['nombre_alumno'] = $user->nombre;
+              $_SESSION['dni'] = $dni;
               header('Location: ../alum/alumno.php');
             }
         } else {

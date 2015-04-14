@@ -26,6 +26,7 @@ class certificadoResponse extends ViafirmaClientResponse {
             } else {
                 $_SESSION['rol'] = 0;
                 $_SESSION['id_usuario'] = $user->id;
+                $_SESSION['dni'] = $usuarioGenerico->numberUserId;
                 header('Location: ../alum/alumno.php');
             }
         }
