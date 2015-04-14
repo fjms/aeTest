@@ -37,7 +37,6 @@ if (isset($_POST['enviar'])) {
     $resultado_alumno->p_incorrectas = $num_incorrectas;
     $resultado_alumno->p_nocontestadas = $num_nocontestadas;
     $resultado_alumno->nota = $num_correctas - ((1 / 3.0) * $num_incorrectas);
-    $resultado_alumno->estado = 'finalizado';
     $resultado_alumno->respuestas = json_encode($respuestas_alumno);
     R::store($resultado_alumno);
     header('Location: ../alum/resultadoexamen.php');

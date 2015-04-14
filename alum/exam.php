@@ -99,21 +99,18 @@ require '../scripts/bdutil.php';
         <script>
             $(document).ready(function () {
                 $("#preguntas").load("../scripts/getexamen.php");
-                var notimer = <?php echo $_SESSION['notimer']; ?>;
-                if (notimer==1) {} else{
-                    $('#countdown').timeTo({
-                        seconds: 600,
-                        displayHours: false},
-                    function () {
-                        $('body').addClass("modal-open"),
-                                $(".modal-open").css("padding-right", "17px"),
-                                $("#myModal").addClass("in"),
-                                $("#myModal").attr("aria-hidden", "false"),
-                                $("#myModal").css("display", "block"),
-                                $("#myModal").css("padding-right", "17px");
-                    }
-                    );
+                $('#countdown').timeTo({
+                    seconds: 600,
+                    displayHours: false},
+                function () {
+                    $('body').addClass("modal-open"),
+                            $(".modal-open").css("padding-right", "17px"),
+                            $("#myModal").addClass("in"),
+                            $("#myModal").attr("aria-hidden", "false"),
+                            $("#myModal").css("display", "block"),
+                            $("#myModal").css("padding-right", "17px");
                 }
+                );
             });
         </script>
     </body>
