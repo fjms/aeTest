@@ -20,7 +20,6 @@ if (isset($_POST['enviar'])) {
     $num_nocontestadas = 0;
     $i = 1;
     foreach ($examen->sharedPreguntayrespuestaList as $pregunta) {
-
         $solucion = $pregunta->correcta;
         if (isset($_POST['respuesta' . $i])) {
             $respuestas_alumno[] = $_POST['respuesta' . $i];
