@@ -20,7 +20,8 @@ try {
 
     //Iniciamos el proceso de firma
     //Url de retorno a la aplicación (tras el proceso de firma)
-    $viafirmaClient->solicitarFirma($idFirma, $VIAFIRMA_RETURN_TO_URL);
+    $viafirmaClient->solicitarFirma($idFirma, "http://localhost/aeTest/viafirma/firmaResponse.php");
+    
 } catch (Exception $ex) {
     
 }
