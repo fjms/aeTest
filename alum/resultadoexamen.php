@@ -51,7 +51,7 @@ require '../scripts/bdutil.php';
                                 echo 'Nota: ' . $resultado->nota;
 
                                 $exam = R::load('examen', $resultado->examen->id);
-                                $repuestas = json_decode($resultado->respuestas);
+                                $respuestas = json_decode($resultado->respuestas);
                                 $i = 0;
                                 ?>
                                 <div class="table-responsive">
@@ -66,8 +66,10 @@ require '../scripts/bdutil.php';
                                             <?php
                                             foreach ($exam->sharedPreguntayrespuestaList as $pregunta) {
                                                 $n = $i + 1;
-                                                if ($pregunta->correcta === $repuestas[$i]) {
+                                                if ($pregunta->correcta === $respuestas[$i]) {
                                                     echo'<tr><th>' . $n . '</th><th>Acertada</th></tr>';
+                                                } else if($respuestas[$i]==='x') {
+                                                    echo'<tr><th>' . $n . '</th><th>No contestada</th></tr>';
                                                 } else {
                                                     echo'<tr><th>' . $n . '</th><th>Fallada</th></tr>';
                                                 }
@@ -79,6 +81,11 @@ require '../scripts/bdutil.php';
                                 </div>
                             </div>
                             <!-- /.panel-body -->
+                            <div class="panel-footer">
+                                <button class="btn btn-primary" name='enviar' type="submit">
+                                                Firmar Examen
+                                            </button>
+                            </div>
                         </div>
                     </div>
                     <!-- /.col-lg-12 -->

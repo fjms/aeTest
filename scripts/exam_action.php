@@ -39,6 +39,8 @@ if (isset($_POST['enviar'])) {
     $resultado->nota = $num_correctas - ((1 / 3.0) * $num_incorrectas);
     $resultado->respuestas = json_encode($respuestas_alumno);
     $_SESSION['id_resultado'] = R::store($resultado);
+    //GENERAR PDF
+    
     header('Location: ../alum/resultadoexamen.php');
 } else {
     header('Location: ../index.php');
