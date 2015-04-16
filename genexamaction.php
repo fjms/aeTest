@@ -11,19 +11,7 @@ if (!isset($_POST['enviar'])) {
         $codigo_examen = trim($_POST['codigo_examen']);
         $examen->nombre = $nombre_examen;
         $examen->codigo = $codigo_examen;
-        $repetidos = array();
-        $i = 1;
-        while ($i <= 10) {
-            $id_pregunta = rand(1, 40);
-            if (in_array($id_pregunta, $repetidos)) {//Si esta repetido
-            } else { //Si no esta repetido
-                $i++;
-                array_push($repetidos, $id_pregunta);
-                $pregunta = R::load('preguntayrespuesta', $id_pregunta);
-                $pregunta->sharedExamenList[] = $examen; // Crea tabla intermedia examen_preguntayrespuesta
-                R::store($pregunta);
-            }
-        }
+        R::store($examen);
     } else {
         header('Location: genexam.php');
     }

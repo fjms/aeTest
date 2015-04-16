@@ -60,22 +60,9 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                             </div>
                             <!-- /.panel-body -->
                         </div>
-                        <div id="preguntas"></div>
+                        
                     </div>
-                    <div class="col-lg-4">
-                        <div class="panel-info">
-                            <div class="panel-heading">
-                                <i class="fa fa-search fa-fw"></i>
-                                Consulta de preguntas
-                            </div>
-                            <div class="panel-body">
-                                <p>Haga click sobre la fila de la tabla Examenes para visualizar las preguntas generadas para dicha convocatoria.</p>
-                            </div>
-                        </div>
-                        <div class="panel-info" id="soluciones">
-                            
-                        </div>
-                    </div>
+                    
                 </div>
                 <!-- /.row -->
             </div>
@@ -105,18 +92,6 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                     "processing": true,
                     "serverSide": true,
                     "ajax": "scripts/spexam.php"
-                });
-                $('#data-examenes tbody').on('click', 'tr', function () {
-                    var id = $('td', this).eq(0).text();
-                    if ($(this).hasClass('info')) {
-                        $(this).removeClass('info');
-                    }
-                    else {
-                        table.$('tr.info').removeClass('info');
-                        $(this).addClass('info');
-                    }
-                    $("#preguntas").load("scripts/getexam.php?q=" + id);
-                    $("#soluciones").load("scripts/getsol.php?q=" + id);
                 });
             });
         </script>

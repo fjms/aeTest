@@ -3,11 +3,9 @@
 require './segAlu.php';
 require './bdutil.php'; // RedBeanPHP 4.1.4
 
-
-$exam = R::load('examen', $_SESSION['id_examen']);
-//echo json_encode($exam->sharedPreguntayrespuestaList);
+$resultado = R::load('resultado', $_SESSION['id_resultado']);
 $i = 1;
-foreach ($exam->sharedPreguntayrespuestaList as $pregunta) {
+foreach ($resultado->sharedPreguntayrespuestaList as $pregunta) {
     echo '<div class="panel panel-primary"><div class="panel-heading">';
     echo $i . '.&nbsp;' . $pregunta->pregunta;
     echo '</div><div class="panel-body">';

@@ -8,18 +8,13 @@ require './segAlu.php';
 require './bdutil.php'; // RedBeanPHP 4.1.4
 
 if (isset($_POST['enviar'])) {
-    $id_examen = $_SESSION['id_examen'];
-    $examen = R::load('examen', $id_examen);
-    $resultado = R::dispense('resultado'); //Entidad Intermedia USUARIO_EXAMEN = RESULTADO
-    $usuario = R::load('user', $_SESSION['id_usuario']);
-    $resultado->user = $usuario; //Many to One
-    $resultado->examen = $examen; //Many to One
-    $resultado->fecha = R::isoDate();
+    
+    $resultado = R::load('resultado', $_SESSION['id_resultado']);
     $respuestas_alumno = [];
     $num_correctas = 0;
     $num_nocontestadas = 0;
     $i = 1;
-    foreach ($examen->sharedPreguntayrespuestaList as $pregunta) {
+    foreach ($resultado->sharedPreguntayrespuestaList as $pregunta) {
         $solucion = $pregunta->correcta;
         if (isset($_POST['respuesta' . $i])) {
             $respuestas_alumno[] = $_POST['respuesta' . $i];

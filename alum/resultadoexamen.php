@@ -49,8 +49,6 @@ require '../scripts/bdutil.php';
                                 echo 'Examen: ' . $resultado->examen->nombre . '<br>';
                                 echo 'Fecha: ' . $resultado->fecha . '<br>';
                                 echo 'Nota: ' . $resultado->nota;
-
-                                $exam = R::load('examen', $resultado->examen->id);
                                 $respuestas = json_decode($resultado->respuestas);
                                 $i = 0;
                                 ?>
@@ -64,7 +62,7 @@ require '../scripts/bdutil.php';
                                         </thead>
                                         <tbody>
                                             <?php
-                                            foreach ($exam->sharedPreguntayrespuestaList as $pregunta) {
+                                            foreach ($resultado->sharedPreguntayrespuestaList as $pregunta) {
                                                 $n = $i + 1;
                                                 if ($pregunta->correcta === $respuestas[$i]) {
                                                     echo'<tr><th>' . $n . '</th><th>Acertada</th></tr>';
