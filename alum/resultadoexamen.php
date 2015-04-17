@@ -47,7 +47,7 @@ require '../scripts/bdutil.php';
                                 $resultado = R::load('resultado', $_SESSION['id_resultado']);
                                 echo $resultado->user->nombre . ' ' . $resultado->user->apellidos . '<br>';
                                 echo 'Examen: ' . $resultado->examen->nombre . '<br>';
-                                echo 'Fecha: ' . $resultado->fecha . '<br>';
+                                echo 'Fecha: ' . R::isoDate() . '<br>';
                                 echo 'Nota: ' . $resultado->nota;
                                 $respuestas = json_decode($resultado->respuestas);
                                 $i = 0;
@@ -66,7 +66,7 @@ require '../scripts/bdutil.php';
                                                 $n = $i + 1;
                                                 if ($pregunta->correcta === $respuestas[$i]) {
                                                     echo'<tr><th>' . $n . '</th><th>Acertada</th></tr>';
-                                                } else if($respuestas[$i]==='x') {
+                                                } else if ($respuestas[$i] === 'x') {
                                                     echo'<tr><th>' . $n . '</th><th>No contestada</th></tr>';
                                                 } else {
                                                     echo'<tr><th>' . $n . '</th><th>Fallada</th></tr>';
@@ -80,9 +80,11 @@ require '../scripts/bdutil.php';
                             </div>
                             <!-- /.panel-body -->
                             <div class="panel-footer">
-                                <button class="btn btn-primary" name='enviar' type="submit">
-                                                Firmar Examen
-                                            </button>
+                                <form role="form" method="post" action="../scripts/firmaPDF.php">
+                                    <button class="btn btn-primary" name='enviar' type="submit">
+                                        Firmar Examen
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

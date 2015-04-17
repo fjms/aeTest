@@ -28,7 +28,12 @@ class firmaResponse extends ViafirmaClientResponse {
 
     // Proceso de Firma correcto: recibe un objeto UsuarioGenericoViafirma
     public function signOK($usuarioGenerico) {
-        echo "Id de firma devuelto: ".$usuarioGenerico->signId;
+        $resultado = R::load('resultado', $_SESSION['id_resultado']);
+        $resultado->estado='firmado';
+        $resultado->datetime = R::isoDateTime();
+        $resultado->firma=$usuarioGenerico->signId;
+        R::store($resultado);
+        header('Location:../alum/alumno.php');
     }
 
 }

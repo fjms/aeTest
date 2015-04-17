@@ -21,7 +21,6 @@ if (isset($_POST['id_examen'])) {
             $usuario = R::load('user', $_SESSION['id_usuario']);
             $resultado->user = $usuario; //Many to One
             $resultado->examen = $examen; //Many to One
-            $resultado->fecha = R::isoDate();
             $resultado->p_correctas = 0;
             $resultado->p_incorrectas = 0;
             $resultado->p_nocontestadas = 10;
