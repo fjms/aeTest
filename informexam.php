@@ -48,13 +48,12 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                             <!-- /.panel-heading -->
                             <div class="panel-body">         
                                 <div class="dataTable_wrapper">
-                                    <table class="table table-striped table-bordered table-hover" id="data-alumnos" >
+                                    <table class="table table-striped table-bordered table-hover" id="data-examenes" >
                                         <thead>
                                             <tr class="">
                                                 <th>Id</th>
                                                 <th>Nombre</th>
-                                                <th>Apellidos</th>
-                                                <th>Email</th>
+                                                <th>Código</th>                                              
                                             </tr>
                                         </thead>
                                     </table>
@@ -103,10 +102,10 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
 
         <script>
             $(document).ready(function () {
-                var table = $('#data-alumnos').dataTable({
+                var table = $('#data-examenes').dataTable({
                     "processing": true,
                     "serverSide": true,
-                    "ajax": "scripts/spealu.php"
+                    "ajax": "scripts/spexam.php"
                 });
                 $('#data-examenes tbody').on('click', 'tr', function () {
                     var id = $('td', this).eq(0).text();

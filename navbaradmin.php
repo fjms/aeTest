@@ -59,7 +59,7 @@ echo '
                                         <a href="informealu.php">Informe por alumno</a>
                                     </li>
                                     <li>
-                                        <a href="morris.html">Anteriores</a>
+                                        <a href="informexam.php">Informe por examen</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
