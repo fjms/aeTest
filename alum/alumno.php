@@ -84,7 +84,7 @@ require '../scripts/bdutil.php';
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">
                                              <?php
-                                            echo R::count('resultado','nota >= 5');                                            
+                                            echo R::count('resultado','nota >= 5 and estado like "firmado"');                                            
                                             ?>
                                         </div>
                                         <div>Examenes Aprobados</div>
@@ -109,7 +109,7 @@ require '../scripts/bdutil.php';
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"><?php
-                                            echo R::count('resultado','nota < 5');                                            
+                                            echo R::count('resultado','nota < 5 and estado like "firmado"');                                            
                                             ?></div>
                                         <div>Examenes Suspendidos</div>
                                     </div>
