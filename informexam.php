@@ -51,7 +51,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                                     <table class="table table-striped table-bordered table-hover" id="data-examenes" >
                                         <thead>
                                             <tr class="">
-                                                <th>Id</th>
+                                                <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Código</th>                                              
                                             </tr>
@@ -61,7 +61,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                             </div>
                             <!-- /.panel-body -->
                         </div>
-                        <div id="preguntas"></div>
+                        <div id="alumnos"></div>
                     </div>
                     <div class="col-lg-4">
                         <div class="panel-info">
@@ -70,7 +70,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                                 Consulta de preguntas
                             </div>
                             <div class="panel-body">
-                                <p>Haga click sobre la fila de la tabla Examenes para visualizar las preguntas generadas para dicha convocatoria.</p>
+                                <p>Haga click sobre una fila de la tabla examenes para visualizar los alumnos que han cursado convocatorias del mismo.</p>
                             </div>
                         </div>
                         <div class="panel-info" id="soluciones">
@@ -116,8 +116,8 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                         table.$('tr.info').removeClass('info');
                         $(this).addClass('info');
                     }
-                    $("#preguntas").load("scripts/getexam.php?q=" + id);
-                    $("#soluciones").load("scripts/getsol.php?q=" + id);
+                    $("#alumnos").load("scripts/getalumno.php?q=" + id);
+                    
                 });
             });
         </script>
