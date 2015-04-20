@@ -51,7 +51,7 @@ echo '
                                         <a href="doexam.php">Realizar examen</a>
                                     </li>
                                     <li>
-                                        <a href="#">Anular examenes pendientes</a>
+                                        <a href="anular.php">Anular examenes pendientes</a>
                                     </li>  
                                 </ul>
                             </li>
