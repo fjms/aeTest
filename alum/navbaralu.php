@@ -54,7 +54,10 @@ echo '
                                         <a href="#">Anular examenes pendientes</a>
                                     </li>  
                                 </ul>
-                            </li>                            
+                            </li>
+                            <li>
+                            <a href="resultados.php"><i class="fa fa-bar-chart-o fa-fw"></i>Resultados</a>
+                            </li>
                             <li>
                                 <a href="coordenadas.php"><i class="fa fa-table fa-fw"></i>Tarjeta de identificación</a>
                             </li>

@@ -67,7 +67,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                         <div class="panel-info">
                             <div class="panel-heading">
                                 <i class="fa fa-search fa-fw"></i>
-                                Consulta de preguntas
+                                Consulta de alumnos
                             </div>
                             <div class="panel-body">
                                 <p>Haga click sobre una fila de la tabla examenes para visualizar los alumnos que han cursado convocatorias del mismo.</p>

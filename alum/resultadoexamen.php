@@ -24,10 +24,6 @@ require '../scripts/bdutil.php';
 
         <!-- Custom CSS -->
         <link href="../theme/dist/css/sb-admin-2.css" rel="stylesheet">
-
-
-
-
         <!-- Custom Fonts -->
         <link href="../theme/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
@@ -103,9 +99,6 @@ require '../scripts/bdutil.php';
 
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../theme/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-
-
         <!-- Custom Theme JavaScript -->
         <script src="../theme/dist/js/sb-admin-2.js"></script>
 
