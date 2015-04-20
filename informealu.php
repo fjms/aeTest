@@ -43,7 +43,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa  fa-bomb -o fa-fw"></i>Examenes                              
+                                <i class="fa fa-users  -o fa-fw"></i>Informe por alumno                              
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">         
@@ -51,7 +51,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                                     <table class="table table-striped table-bordered table-hover" id="data-alumnos" >
                                         <thead>
                                             <tr class="">
-                                                <th>Id</th>
+                                                <th>#</th>
                                                 <th>Nombre</th>
                                                 <th>Apellidos</th>
                                                 <th>Email</th>
@@ -62,16 +62,16 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                             </div>
                             <!-- /.panel-body -->
                         </div>
-                        <div id="preguntas"></div>
+                        <div id="examenes"></div>
                     </div>
                     <div class="col-lg-4">
                         <div class="panel-info">
                             <div class="panel-heading">
                                 <i class="fa fa-search fa-fw"></i>
-                                Consulta de preguntas
+                                Consulta de convocatorias
                             </div>
                             <div class="panel-body">
-                                <p>Haga click sobre la fila de la tabla Examenes para visualizar las preguntas generadas para dicha convocatoria.</p>
+                                <p>Haga click sobre una fila de la tabla alumnos para visualizar las convocatorias del alumno seleccionado.</p>
                             </div>
                         </div>
                         <div class="panel-info" id="soluciones">
@@ -108,7 +108,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                     "serverSide": true,
                     "ajax": "scripts/spealu.php"
                 });
-                $('#data-examenes tbody').on('click', 'tr', function () {
+                $('#data-alumnos tbody').on('click', 'tr', function () {
                     var id = $('td', this).eq(0).text();
                     if ($(this).hasClass('info')) {
                         $(this).removeClass('info');
@@ -117,8 +117,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                         table.$('tr.info').removeClass('info');
                         $(this).addClass('info');
                     }
-                    $("#preguntas").load("scripts/getexam.php?q=" + id);
-                    $("#soluciones").load("scripts/getsol.php?q=" + id);
+                    $("#examenes").load("scripts/getconvocatoria.php?q=" + id);
                 });
             });
         </script>

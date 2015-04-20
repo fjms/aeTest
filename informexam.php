@@ -43,7 +43,7 @@ require './scripts/segAdmin.php'; // Levanta session y securiza solo para admin
                     <div class="col-lg-8">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa  fa-bomb -o fa-fw"></i>Examenes                              
+                                <i class="fa   fa-tasks  -o fa-fw"></i>Informe por examen                              
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">         
