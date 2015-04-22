@@ -25,9 +25,9 @@ class firmaLoteResponse extends ViafirmaClientResponse {
     // Proceso de Firma correcto: recibe un objeto UsuarioGenericoViafirma
     public function signOK($usuarioGenerico) {
         
-        echo $usuarioGenerico->signId;
+        $_SESSION['anulado']=$usuarioGenerico->signId;
        
-        //header('Location:../alum/alumno.php');
+        header('Location:../alum/anulado.php');
     }
 
 }
