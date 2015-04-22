@@ -11,3 +11,11 @@ foreach ($examenes as $examen) {
 
 
 R::store($anulacion);
+//CREACION PDF
+
+    
+
+
+
+
+header('Location: ../alum/alumno.php');

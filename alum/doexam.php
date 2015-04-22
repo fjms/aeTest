@@ -54,9 +54,29 @@ require '../scripts/bdutil.php';
                                             </label>
                                             <select class="form-control" name="id_examen">
                                                 <?php
-                                                $examenes = R::find('examen');
-                                                foreach ($examenes as $examen) {
-                                                    echo '<option value="' . $examen->id . '">' . $examen->nombre . '</option>';
+                                                $examenesFind = R::find('examen');
+
+                                                $examenesids = R::getAll('SELECT id from examen');
+                                                $examenes = [];
+                                                foreach ($examenesids as $examenid) {
+                                                    $examenes[] = $examenid['id'];
+                                                }
+                                                $anulaciones = R::find('anulacion', 'user_id = ?', [$_SESSION['id_usuario']]);
+
+                                                if (empty($anulaciones)) {
+                                                    foreach ($examenesFind as $examen) {
+                                                        echo '<option value="' . $examen->id . '">' . $examen->nombre . '</option>';
+                                                    }
+                                                } else {
+                                                    foreach ($anulaciones as $anulacion) {
+                                                        foreach ($anulacion->sharedExamenList as $examen) {
+                                                            if (in_array($examen->id, $examenes)) {
+                                                                
+                                                            } else {
+                                                                echo '<option value="' . $examen->id . '">' . $examen->nombre . '</option>';
+                                                            }
+                                                        }
+                                                    }
                                                 }
                                                 ?>
                                             </select>                                           
